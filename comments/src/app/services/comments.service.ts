@@ -15,14 +15,12 @@ const example_uri = "http://jsonplaceholder.typicode.com/posts/1/comments";
 
 @Injectable()
 export class CommentsService {
-  comments$: Observable<any>;
+  private comments$: Observable<any>;
   constructor(private http: Http) {
     this.comments$ = this.getComments().share();
   }
 
-
-
-  getComments(): Observable<any> {
+  private getComments(): Observable<any> {
     return this.http.get(example_uri)
       .map(response => response.json())
       .catch(this.handleError);   
