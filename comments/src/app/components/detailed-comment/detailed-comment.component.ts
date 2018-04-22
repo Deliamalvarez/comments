@@ -9,19 +9,22 @@ import { CommentsService } from '../../services/comments.service';
   styleUrls: ['./detailed-comment.component.css']
 })
 export class DetailedCommentComponent implements OnInit {
-
+  
   comment: any;
   private id: number;
 
   constructor(private router: Router, activatedRoute: ActivatedRoute, private service: CommentsService) {
-     this.id = +activatedRoute.snapshot.params.id;
-     this.comment = service.getById(this.id);
-   }
-
-  ngOnInit() {
+    this.id = +activatedRoute.snapshot.params.id;
+    
   }
 
-  onClickButtonBack(){
+  ngOnInit() {
+    this.service.getCommentById(this.id).subscribe(c=> {
+      this.comment = c;
+    });
+  }
+
+  onClickButtonBack() {
     this.router.navigate(['/']);
   }
 

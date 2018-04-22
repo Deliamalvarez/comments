@@ -1,10 +1,9 @@
 <p>
-  <strong>Name: </strong>{{comment.name}}
+  <strong>Name: </strong>{{comment?.name}}
 </p>
 <p>
-  <strong>Email Address: </strong>{{comment.email}
-}</p>
+  <strong>Email Address: </strong>{{comment?.email}}</p>
 <p>
-  <strong>Comment: </strong>{{comment.body}}
+  <strong>Comment: </strong>{{comment?.body}}
 </p>
 <button class="btn btn-primary" (click)="onClickButtonBack()">Take me back</button>

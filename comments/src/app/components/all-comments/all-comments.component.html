@@ -1,11 +1,13 @@
-<h1 class="detail-4">Comments summary list</h1>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item" *ngFor="let comment of comments">
-    <div>
-      <p><strong>Name: </strong>{{comment.name  | truncate:[20, '...']}}</p>
-      <p><strong>Email Address: </strong>{{comment.email}}</p>
-      <p><strong>Comment: </strong>{{comment.body  | truncate:[30, '...']}}</p>
-      <a [routerLink]="['/detail', comment.id]">Read more...</a>
-    </div>
-  </li>
-</ul>
+
+
+    <h1 class="detail-4">Comments summary list</h1>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let comment of comments">
+        <div>
+          <p><strong>Name: </strong>{{comment.name  | truncate:[20, '...']}}</p>
+          <p><strong>Email Address: </strong>{{comment.email}}</p>
+          <p><strong>Comment: </strong>{{comment.body  | truncate:[30, '...']}}</p>
+          <a [routerLink]="['/detail', comment.id]">Read more...</a>
+        </div>
+      </li>
+    </ul>
