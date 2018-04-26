@@ -1,5 +1,5 @@
-import { AppError } from "./app.errors";
+import { AppError } from './app.errors';
 
-export class BadRequestError extends AppError{
+export class BadRequestError extends AppError {
 
 }
