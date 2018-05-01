@@ -2,19 +2,19 @@ import { by } from 'protractor';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Location, CommonModule } from '@angular/common';
 import { RouterTestingModule } from '@angular/router/testing';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AllCommentsComponent } from './all-comments.component';
 import { TruncatePipe } from '../../commons/length.pipe';
 import { CommentsService } from '../../services/comments.service';
 import { MOCK_COMMENTS } from '../../commons/mock.comments';
 import { Observable } from 'rxjs/Observable';
-import "rxjs/add/observable/of";
+import 'rxjs/add/observable/of';
 
 describe('AllCommentsComponent', () => {
   let component: AllCommentsComponent;
   let fixture: ComponentFixture<AllCommentsComponent>;
-  let mockCommentService = {
+  const mockCommentService = {
     getAllComments: () => {
       return Observable.of(MOCK_COMMENTS);
     }
@@ -23,7 +23,7 @@ describe('AllCommentsComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [AllCommentsComponent, TruncatePipe],
-      imports: [RouterTestingModule, CommonModule, HttpModule],
+      imports: [RouterTestingModule, CommonModule, HttpClientModule],
       providers: [{ provide: CommentsService, useValue: mockCommentService }]
     })
       .compileComponents();
@@ -48,9 +48,9 @@ describe('AllCommentsComponent', () => {
     expect(compiled.querySelector('h1').textContent).toContain('Comments summary list');
   }));
 
-  it('should display all mock coments li items', function() {
+  it('should display all mock coments li items', function () {
     const compiled = fixture.debugElement.nativeElement;
-    let liCount = compiled.querySelectorAll('li').length;
+    const liCount = compiled.querySelectorAll('li').length;
     expect(liCount).toBe(MOCK_COMMENTS.length);
   });
 });

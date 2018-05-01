@@ -1,10 +1,10 @@
 import { TestBed, inject } from '@angular/core/testing';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 import { CommentsService } from './comments.service';
 import { MOCK_COMMENTS } from '../commons/mock.comments';
 import { Observable } from 'rxjs/Observable';
-import "rxjs/add/observable/of";
+import 'rxjs/add/observable/of';
 
 describe('CommentsService', () => {
   let comment_service: CommentsService;
@@ -13,7 +13,7 @@ describe('CommentsService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       providers: [CommentsService],
-      imports: [HttpModule]
+      imports: [HttpClientModule]
     });
     comment_service = TestBed.get(CommentsService);
   });
@@ -29,7 +29,7 @@ describe('CommentsService', () => {
         expect(value).toBe(MOCK_COMMENTS);
         done();
       });
-    }
+    };
   });
 
   it('getCommentById in service should return specific value from observable', () => {
@@ -39,7 +39,7 @@ describe('CommentsService', () => {
         expect(value).toBe(MOCK_COMMENTS[1]);
         done();
       });
-    }
+    };
   });
 
   it('getCommentById in service should return 404 Error from observable when an item is not found', () => {
@@ -49,7 +49,7 @@ describe('CommentsService', () => {
         expect(value).toBe(404);
         done();
       });
-    }
+    };
   });
 
 });

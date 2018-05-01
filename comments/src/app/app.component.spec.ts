@@ -20,7 +20,7 @@ describe('AppComponent', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   }));
-  
+
   it('should render router-outlet tag', async(() => {
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;

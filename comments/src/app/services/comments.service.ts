@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { BadInput } from '../commons/bad-input';
 import { NotFoundError } from '../commons/not-found.error';
 import { AppError } from '../commons/app.errors';
@@ -20,13 +20,13 @@ const example_uri = 'http://jsonplaceholder.typicode.com/posts/1/comments';
 @Injectable()
 export class CommentsService {
   private comments$: Observable<any>;
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.comments$ = this.getComments().share();
   }
 
   private getComments(): Observable<any> {
     return this.http.get(example_uri)
-      .map(response => response.json())
+      .map(response => response)
       .catch(this.handleError);
   }
   getAllComments() {
