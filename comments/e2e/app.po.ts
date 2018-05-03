@@ -10,7 +10,7 @@ export class AppPage {
   }
 
   getFirstLinkElement() {
-    return element(by.className('comment-link'))
+    return element(by.className('comment-link'));
   }
 
   getDetailPageContent() {

@@ -22,7 +22,8 @@ describe('comments App', () => {
   it('should navigate into detail page', () => {
     const detailedText = ['Name: id labore ex et quam laborum',
       'Email Address: Eliseo@gardner.biz',
-      'Comment: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus dolor quam autem quasi reiciendis et nam sapiente accusantium']
+      'Comment: laudantium enim quasi est quidem magnam voluptate ipsam eos tempora quo necessitatibus dolor quam ' +
+      'autem quasi reiciendis et nam sapiente accusantium'];
     page.navigateTo();
     page.getFirstLinkElement().click();
     expect(page.getDetailPageContent()).toEqual(detailedText);

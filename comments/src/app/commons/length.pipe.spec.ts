@@ -9,20 +9,20 @@ describe('TruncatePipe', () => {
     pipe = new TruncatePipe();
   });
 
-  it('should create an instance', ()=>{
+  it('should create an instance', () => {
     expect(pipe).toBeTruthy();
   });
 
-  it('should return null', ()=>{
+  it('should return null', () => {
     expect(pipe.transform(null)).toEqual(null);
   });
 
-  it('should return text truncated with length 20 and default trail', ()=>{
+  it('should return text truncated with length 20 and default trail', () => {
     const expected = text.substring(0, 20) + '...';
     expect(pipe.transform(text).toString()).toEqual(expected);
   });
 
-  it('should return text truncated with length 10 and custom trail', ()=>{
+  it('should return text truncated with length 10 and custom trail', () => {
     const expected = text.substring(0, 10) + '***';
     expect(pipe.transform(text, ['10', '***']).toString()).toEqual(expected);
   });
