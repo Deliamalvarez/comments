@@ -1,4 +1,4 @@
-a, a:link, a:active{
+.comment-link a, a:link, a:active{
     padding:5px 10px;
     color: blue;
     text-decoration: none;
@@ -8,7 +8,7 @@ a, a:link, a:active{
 
 
 
-a:hover {
+.comment-link a:hover {
     color: grey;
     text-decoration: none;
 }
